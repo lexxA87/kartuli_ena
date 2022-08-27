@@ -1,7 +1,9 @@
 const express = require("express");
 const { graphqlHTTP } = require("express-graphql");
-const { buildSchema } = require("graphql");
 const mongoose = require("mongoose");
+
+const schema = require("./graphql/schema");
+const root = require("./graphql/resolver/root");
 
 const path = require("path");
 
@@ -11,18 +13,6 @@ const cors = require("cors");
 
 const PORT = process.env.PORT || config.get("serverPort");
 const DB_URL = config.get("MongoDBUrl");
-
-const schema = buildSchema(`
-  type Query {
-    hello: String
-  }
-`);
-
-const root = {
-  hello: () => {
-    return "Hello world!";
-  },
-};
 
 const app = express();
 app.use(express.json());

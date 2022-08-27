@@ -5,6 +5,7 @@ const Word = new Schema({
   ka: { type: String, required: true },
   ru: { type: String, required: true },
   en: String,
+  description: String,
   examples: [{ type: String }],
   image: { type: ObjectId, ref: "Image" },
   tags: [{ type: ObjectId, ref: "Tag" }],

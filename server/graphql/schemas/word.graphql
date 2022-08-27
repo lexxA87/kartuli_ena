@@ -1,0 +1,14 @@
+type Word {
+  ka: String
+  ru: String
+  en: String
+  description: String
+  examples: String
+  image: ID
+  tags: [Tag]
+}
+
+input NewWord {
+  ka: String!
+  ru: String!
+}
