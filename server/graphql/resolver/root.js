@@ -1,3 +1,42 @@
+const Word = require("../../models/Word");
+const Tag = require("../../models/Tag");
+
+const handleError = (res, error) => {
+  res.status(500).send(error.message);
+};
+
+const getAllWords = (req, res) => {
+  Word.find()
+    .then((tags) => res.status(200).json(tags))
+    .catch((error) => handleError(res, error));
+};
+
+const getTags = (req, res) => {
+  Tag.find()
+    .then((tags) => res.status(200).json(tags))
+    .catch((error) => handleError(res, error));
+};
+
+const getTagsForCloud = (req, res) => {
+  const { limit } = req.query;
+  Tag.find()
+    .limit(limit)
+    .then((tags) => res.status(200).json(tags))
+    .catch((error) => handleError(res, error));
+};
+
+const postTag = (req, res) => {
+  const { title } = req.body;
+
+  const comment = new Tag({
+    title,
+  });
+  comment
+    .save()
+    .then((tag) => res.status(200).json(tag))
+    .catch((error) => handleError(res, error));
+};
+
 const words = [
   {
     id: 1,
@@ -28,31 +67,20 @@ const words = [
   },
 ];
 
-const tags = [
-  { id: 1, title: "ttt" },
-  { id: 2, title: "ttt1" },
-  { id: 3, title: "ttt2" },
-];
-
-const createWord = (input) => {
-  const id = Date.now();
-  return {
-    id,
-    ...input,
-  };
+const createWord = async (input) => {
+  const word = new Word(input);
+  const word_1 = await word.save();
+  return word_1;
 };
 
 const createTag = (input) => {
-  const id = Date.now();
-  return {
-    id,
-    ...input,
-  };
+  const tag = new Tag(input);
+  return tag.save().then((tag) => tag);
 };
 
 const root = {
   getAllWords: () => {
-    return words;
+    return Word.find();
   },
   getWordsByTag: ({ id }) => {
     const ar = words.filter((word) => {
@@ -67,17 +95,13 @@ const root = {
     return words.find((word) => word.id == id);
   },
   getAllTags: () => {
-    return tags;
+    return Tag.find();
   },
   createWord: ({ input }) => {
-    const word = createWord(input);
-    words.push(word);
-    return word;
+    return createWord(input);
   },
   createTag: ({ input }) => {
-    const tag = createTag(input);
-    tags.push(tag);
-    return tag;
+    return createTag(input);
   },
 };
 
