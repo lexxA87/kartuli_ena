@@ -24,8 +24,8 @@ const schema = buildSchema(`
         tags: [TagInput]
     }
     input TagInput {
-        id: ID
-        title: String!
+        id: ID!
+        title: String
     }
 
     type Query {
