@@ -6,8 +6,9 @@ const schema = buildSchema(`
         ka: String
         ru: String
         en: String
+        role: String
         description: String
-        examples: String
+        examples: [String]
         tags: [Tag]
     }
     type Tag {
@@ -19,8 +20,9 @@ const schema = buildSchema(`
         ka: String!
         ru: String!
         en: String
+        role: String
         description: String
-        examples: String
+        examples: [String]
         tags: [TagInput]
     }
     input TagInput {
