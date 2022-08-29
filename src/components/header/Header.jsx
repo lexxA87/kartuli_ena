@@ -5,9 +5,8 @@ function Header() {
     <header id="header" class="header d-flex align-items-center">
       <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
         <a href="index.html" class="logo d-flex align-items-center">
-          {/* <!-- <img src="assets/img/logo.png" alt=""> --> */}
           <h1>
-            UpConstruction<span>.</span>
+            ქართული ენა<span>.</span>
           </h1>
         </a>
 
@@ -21,62 +20,38 @@ function Header() {
               </a>
             </li>
             <li>
-              <a href="about.html">About</a>
+              <a href="about.html">Words</a>
             </li>
             <li>
-              <a href="services.html">Services</a>
+              <a href="services.html">Rules</a>
             </li>
             <li>
-              <a href="projects.html">Projects</a>
+              <a href="projects.html">History</a>
             </li>
             <li>
-              <a href="blog.html">Blog</a>
+              <a href="blog.html">Gallery</a>
             </li>
             <li class="dropdown">
               <a href="#">
-                <span>Dropdown</span>{" "}
+                <span>Language</span>{" "}
                 <i class="bi bi-chevron-down dropdown-indicator"></i>
               </a>
               <ul>
                 <li>
-                  <a href="#">Dropdown 1</a>
-                </li>
-                <li class="dropdown">
                   <a href="#">
-                    <span>Deep Dropdown</span>{" "}
-                    <i class="bi bi-chevron-down dropdown-indicator"></i>
+                    English <span class="fi fi-us"></span>
                   </a>
-                  <ul>
-                    <li>
-                      <a href="#">Deep Dropdown 1</a>
-                    </li>
-                    <li>
-                      <a href="#">Deep Dropdown 2</a>
-                    </li>
-                    <li>
-                      <a href="#">Deep Dropdown 3</a>
-                    </li>
-                    <li>
-                      <a href="#">Deep Dropdown 4</a>
-                    </li>
-                    <li>
-                      <a href="#">Deep Dropdown 5</a>
-                    </li>
-                  </ul>
                 </li>
+
                 <li>
-                  <a href="#">Dropdown 2</a>
-                </li>
-                <li>
-                  <a href="#">Dropdown 3</a>
-                </li>
-                <li>
-                  <a href="#">Dropdown 4</a>
+                  <a href="#">
+                    Русский <span class="fi fi-ru"></span>
+                  </a>
                 </li>
               </ul>
             </li>
             <li>
-              <a href="contact.html">Contact</a>
+              <a href="contact.html">About</a>
             </li>
           </ul>
         </nav>

@@ -2,13 +2,13 @@ import React from "react";
 
 function StartPage() {
   return (
-    <section id="hero" class="hero">
-      <div class="info d-flex align-items-center">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-6 text-center">
+    <section id="hero" className="hero">
+      <div className="info d-flex align-items-center">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-lg-6 text-center">
               <h2 data-aos="fade-down">
-                Welcome to <span>UpConstruction</span>
+                Welcome to <span>ქართული ენა</span>
               </h2>
               <p data-aos="fade-up">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -20,7 +20,7 @@ function StartPage() {
                 data-aos="fade-up"
                 data-aos-delay="200"
                 href="#get-started"
-                class="btn-get-started"
+                className="btn-get-started"
               >
                 Get Started
               </a>
@@ -31,69 +31,80 @@ function StartPage() {
 
       <div
         id="hero-carousel"
-        class="carousel slide"
+        className="carousel slide"
         data-bs-ride="carousel"
         data-bs-interval="5000"
       >
         <div
-          class="carousel-item active"
+          className="carousel-item active"
           style={{
             backgroundImage:
-              "url(assets/img/hero-carousel/hero-carousel-1.jpg)",
+              "url(assets/img/hero-carousel/carousel/carousel-1.jpg)",
           }}
         ></div>
         <div
-          class="carousel-item"
+          className="carousel-item"
           style={{
             backgroundImage:
-              "url(assets/img/hero-carousel/hero-carousel-2.jpg)",
+              "url(assets/img/hero-carousel/carousel/carousel-2.jpg)",
           }}
         ></div>
         <div
-          class="carousel-item"
+          className="carousel-item"
           style={{
             backgroundImage:
-              "url(assets/img/hero-carousel/hero-carousel-3.jpg)",
+              "url(assets/img/hero-carousel/carousel/carousel-3.jpg)",
           }}
         ></div>
         <div
-          class="carousel-item"
+          className="carousel-item"
           style={{
             backgroundImage:
-              "url(assets/img/hero-carousel/hero-carousel-4.jpg)",
+              "url(assets/img/hero-carousel/carousel/carousel-4.jpg)",
           }}
         ></div>
         <div
-          class="carousel-item"
+          className="carousel-item"
           style={{
             backgroundImage:
-              "url(assets/img/hero-carousel/hero-carousel-5.jpg)",
+              "url(assets/img/hero-carousel/carousel/carousel-5.jpg)",
           }}
         ></div>
-
-        <a
-          class="carousel-control-prev"
-          href="#hero-carousel"
-          role="button"
-          data-bs-slide="prev"
-        >
-          <span
-            class="carousel-control-prev-icon bi bi-chevron-left"
-            aria-hidden="true"
-          ></span>
-        </a>
-
-        <a
-          class="carousel-control-next"
-          href="#hero-carousel"
-          role="button"
-          data-bs-slide="next"
-        >
-          <span
-            class="carousel-control-next-icon bi bi-chevron-right"
-            aria-hidden="true"
-          ></span>
-        </a>
+        <div
+          className="carousel-item"
+          style={{
+            backgroundImage:
+              "url(assets/img/hero-carousel/carousel/carousel-6.jpg)",
+          }}
+        ></div>
+        <div
+          className="carousel-item"
+          style={{
+            backgroundImage:
+              "url(assets/img/hero-carousel/carousel/carousel-7.jpg)",
+          }}
+        ></div>
+        <div
+          className="carousel-item"
+          style={{
+            backgroundImage:
+              "url(assets/img/hero-carousel/carousel/carousel-8.jpg)",
+          }}
+        ></div>
+        <div
+          className="carousel-item"
+          style={{
+            backgroundImage:
+              "url(assets/img/hero-carousel/carousel/carousel-9.jpg)",
+          }}
+        ></div>
+        <div
+          className="carousel-item"
+          style={{
+            backgroundImage:
+              "url(assets/img/hero-carousel/carousel/carousel-10.jpg)",
+          }}
+        ></div>
       </div>
     </section>
   );
