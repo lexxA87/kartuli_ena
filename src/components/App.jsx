@@ -8,6 +8,7 @@ import GalleryPage from "./galleryPage/GalleryPage";
 import HistoryPage from "./historyPage/HistoryPage";
 import RulesPage from "./rulesPage/RulesPage";
 import WordsPage from "./wordsPage/WordsPage";
+import WordPage from "./wordsPage/WordPage";
 import NotFound from "./notFound/NotFound";
 
 import "/node_modules/flag-icons/css/flag-icons.min.css";
@@ -16,16 +17,20 @@ function App() {
   return (
     <>
       <Header />
-      <Routes>
-        <Route index element={<StartPage />} />
-        <Route path="admin" element={<AdminPage />} />
-        <Route path="about" element={<AboutPage />} />
-        <Route path="gallery" element={<GalleryPage />} />
-        <Route path="history" element={<HistoryPage />} />
-        <Route path="rules" element={<RulesPage />} />
-        <Route path="words" element={<WordsPage />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <main id="main">
+        <Routes>
+          <Route index element={<StartPage />} />
+          <Route path="words" element={<WordsPage />} />
+          <Route path="admin" element={<AdminPage />} />
+          <Route path="about" element={<AboutPage />} />
+          <Route path="gallery" element={<GalleryPage />} />
+          <Route path="history" element={<HistoryPage />} />
+          <Route path="rules" element={<RulesPage />} />
+          <Route path="word:id" element={<WordPage />} />
+
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
     </>
   );
 }

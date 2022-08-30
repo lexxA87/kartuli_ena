@@ -1,7 +1,14 @@
 import React from "react";
+import HeaderBreadcrunb from "../breadcrumbs/HeaderBreadcrunb";
+import WordsList from "./WordsList";
 
 function WordsPage() {
-  return <div>WordsPage</div>;
+  return (
+    <>
+      <HeaderBreadcrunb title="Words Page" />
+      <WordsList />
+    </>
+  );
 }
 
 export default WordsPage;
