@@ -8,13 +8,12 @@ function WordCard(props) {
       <div className="service-item  position-relative">
         <div className="icon">
           <i className="fa-solid fa-mountain-city"></i>
+          <span>{role}</span>
         </div>
         <h3>{ka}</h3>
-        <p>
-          {ru}
-          <hr />
-          {en}
-        </p>
+        <p>{ru}</p>
+        <hr />
+        <p>{en}</p>
         <Link to={`/word${id}`} className="readmore stretched-link">
           Learn more <i className="bi bi-arrow-right"></i>
         </Link>
