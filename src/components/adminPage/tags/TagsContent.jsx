@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_ALL_TAGS } from "../../../apollo/tags";
-import { Button, Modal } from "react-bootstrap";
+import { Button, Modal, Spinner, Alert } from "react-bootstrap";
 import TagForm from "../forms/TagForm";
 import TagsTable from "./TagsTable";
 
 function TagsContent() {
-  const { loading, error, data: tags, refetch } = useQuery(GET_ALL_TAGS);
+  const { loading, error, data, refetch } = useQuery(GET_ALL_TAGS);
 
   const [showModal, setShowModal] = useState(false);
 
@@ -15,7 +15,12 @@ function TagsContent() {
   return (
     <div>
       <Button onClick={handleShowModal}>New +</Button>
-      <TagsTable loading={loading} error={error} tags={tags} />
+      {error && <Alert variant="danger">Somthing wrong...</Alert>}
+      {loading ? (
+        <Spinner animation="border" variant="secondary" />
+      ) : (
+        <TagsTable tags={data.tags} />
+      )}
 
       <Modal show={showModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>

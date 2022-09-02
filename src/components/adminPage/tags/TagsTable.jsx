@@ -1,19 +1,59 @@
 import React, { useMemo } from "react";
 import { useTable } from "react-table";
-import { Spinner, Alert } from "react-bootstrap";
+import BootstrapTable from "react-bootstrap/Table";
+import ButtonsActionsTable from "../helpers/ButtonsActionsTable";
 
-function TagsTable(props) {
-  const { loading, error, tags } = props;
+function TagsTable({ tags }) {
+  const data = useMemo(() => tags, [tags]);
 
-  console.log(tags);
+  const columns = useMemo(
+    () => [
+      {
+        Header: "Title",
+        accessor: "title",
+      },
+      {
+        Header: "ID",
+        accessor: "id",
+      },
+      {
+        Header: "Actions",
+        accessor: "buttons",
+        Cell: ({ row }) => <ButtonsActionsTable object={row.original} />,
+      },
+    ],
+    []
+  );
 
-  if (loading) {
-    return <Spinner animation="border" variant="secondary" />;
-  }
-  if (error) {
-    return <Alert variant="danger">Somthing wrong...</Alert>;
-  }
-  return <div>TagsTable</div>;
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+    useTable({ columns, data });
+
+  return (
+    <BootstrapTable striped bordered hover {...getTableProps()}>
+      <thead>
+        {headerGroups.map((headerGroup) => (
+          <tr {...headerGroup.getHeaderGroupProps()}>
+            {headerGroup.headers.map((column) => (
+              <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+            ))}
+          </tr>
+        ))}
+      </thead>
+
+      <tbody {...getTableBodyProps()}>
+        {rows.map((row) => {
+          prepareRow(row);
+          return (
+            <tr {...row.getRowProps()}>
+              {row.cells.map((cell) => {
+                return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>;
+              })}
+            </tr>
+          );
+        })}
+      </tbody>
+    </BootstrapTable>
+  );
 }
 
 export default TagsTable;
