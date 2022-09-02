@@ -1,19 +1,24 @@
 import React from "react";
+import { useMutation } from "@apollo/client";
+import { DELETE_TAG } from "../../../apollo/tags";
 import { Button } from "react-bootstrap";
 
-function ButtonsActionsTable({ object }) {
-  console.log(object);
+function ButtonsActionsTable({ object, refetch }) {
+  const [deleteTag] = useMutation(DELETE_TAG);
+
   const editForm = () => {
     console.log("edit form");
-    // setObject(object);
-    // setShowForm(true);
   };
 
-  const handleDelete = async () => {
+  const handleDelete = () => {
     const id = object.id;
-    console.log(id);
-    // await deleteObject(id);
-    // setObject({});
+    deleteTag({
+      variables: {
+        id: id,
+      },
+    }).then((data) => {
+      refetch();
+    });
   };
 
   return (

@@ -19,7 +19,7 @@ function TagsContent() {
       {loading ? (
         <Spinner animation="border" variant="secondary" />
       ) : (
-        <TagsTable tags={data.tags} />
+        <TagsTable tags={data.tags} refetch={refetch} />
       )}
 
       <Modal show={showModal} onHide={handleCloseModal}>

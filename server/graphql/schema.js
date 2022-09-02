@@ -42,6 +42,7 @@ const schema = buildSchema(`
     type Mutation {
         createWord(input: WordInput): Word
         createTag(input: TagInput): Tag
+        deleteTag(id: ID): Tag
     }
 `);
 

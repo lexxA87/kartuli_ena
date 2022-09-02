@@ -32,6 +32,9 @@ const root = {
   createTag: ({ input }) => {
     return createTag(input);
   },
+  deleteTag: ({ id }) => {
+    return Tag.findByIdAndDelete(id);
+  },
 };
 
 module.exports = root;

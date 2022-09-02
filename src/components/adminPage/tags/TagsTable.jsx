@@ -3,7 +3,7 @@ import { useTable } from "react-table";
 import BootstrapTable from "react-bootstrap/Table";
 import ButtonsActionsTable from "../helpers/ButtonsActionsTable";
 
-function TagsTable({ tags }) {
+function TagsTable({ tags, refetch }) {
   const data = useMemo(() => tags, [tags]);
 
   const columns = useMemo(
@@ -19,9 +19,12 @@ function TagsTable({ tags }) {
       {
         Header: "Actions",
         accessor: "buttons",
-        Cell: ({ row }) => <ButtonsActionsTable object={row.original} />,
+        Cell: ({ row }) => (
+          <ButtonsActionsTable object={row.original} refetch={refetch} />
+        ),
       },
     ],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
 
