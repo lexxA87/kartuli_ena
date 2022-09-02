@@ -12,7 +12,7 @@ const Word = new Schema({
     default: "other",
   },
   examples: [{ type: String }],
-  image: { type: ObjectId, ref: "Image" },
+  imageUrl: String,
   tags: [{ type: ObjectId, ref: "Tag" }],
 });
 

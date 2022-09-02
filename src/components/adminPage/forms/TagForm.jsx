@@ -6,7 +6,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import { Button, Form } from "react-bootstrap";
 
-function TagForm({ handleClose }) {
+function TagForm({ handleClose, refetch }) {
   const [newTag, loading] = useMutation(CREATE_TAG);
   const [isLoading, setLoading] = useState(false);
 
@@ -19,6 +19,7 @@ function TagForm({ handleClose }) {
     })
       .then((data) => {
         alert("Saved new tag!");
+        refetch();
         handleClose();
       })
       .catch((error) => {

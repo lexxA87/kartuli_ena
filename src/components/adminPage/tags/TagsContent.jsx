@@ -1,9 +1,13 @@
 import React, { useState } from "react";
+import { useQuery } from "@apollo/client";
+import { GET_ALL_TAGS } from "../../../apollo/tags";
 import { Button, Modal } from "react-bootstrap";
 import TagForm from "../forms/TagForm";
 import TagsTable from "./TagsTable";
 
 function TagsContent() {
+  const { loading, error, data: tags, refetch } = useQuery(GET_ALL_TAGS);
+
   const [showModal, setShowModal] = useState(false);
 
   const handleCloseModal = () => setShowModal(false);
@@ -11,14 +15,14 @@ function TagsContent() {
   return (
     <div>
       <Button onClick={handleShowModal}>New +</Button>
-      <TagsTable />
+      <TagsTable loading={loading} error={error} tags={tags} />
 
       <Modal show={showModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <TagForm handleClose={handleCloseModal} />
+          <TagForm handleClose={handleCloseModal} refetch={refetch} />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseModal}>

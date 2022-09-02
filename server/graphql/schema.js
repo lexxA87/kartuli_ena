@@ -9,6 +9,7 @@ const schema = buildSchema(`
         role: String
         description: String
         examples: [String]
+        imageUrl: String
         tags: [Tag]
     }
     type Tag {
@@ -23,6 +24,7 @@ const schema = buildSchema(`
         role: String
         description: String
         examples: [String]
+        imageUrl: String
         tags: [TagInput]
     }
     input TagInput {
