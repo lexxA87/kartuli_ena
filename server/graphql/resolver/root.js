@@ -32,6 +32,9 @@ const root = {
   createTag: ({ input }) => {
     return createTag(input);
   },
+  deleteWord: ({ id }) => {
+    return Word.findByIdAndDelete(id);
+  },
   deleteTag: ({ id }) => {
     return Tag.findByIdAndDelete(id);
   },

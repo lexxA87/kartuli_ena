@@ -43,6 +43,7 @@ const schema = buildSchema(`
         createWord(input: WordInput): Word
         createTag(input: TagInput): Tag
         deleteTag(id: ID): Tag
+        deleteWord(id: ID): Word
     }
 `);
 
