@@ -1,9 +1,9 @@
 const express = require("express");
-// const { graphqlHTTP } = require("express-graphql");
+const { graphqlHTTP } = require("express-graphql");
 const mongoose = require("mongoose");
 
-// const schema = require("./server/graphql/schema");
-// const roott = require("./server/graphql/resolver/root");
+const schema = require("./server/graphql/schema");
+const roott = require("./server/graphql/resolver/root");
 
 const path = require("path");
 
@@ -21,18 +21,18 @@ app.use(cors());
 app.use(express.static(__dirname));
 app.use(express.static(path.resolve(__dirname, "build")));
 
+app.use(
+  "/graphql",
+  graphqlHTTP({
+    schema: schema,
+    rootValue: roott,
+    graphiql: true,
+  })
+);
+
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
-
-// app.use(
-//   "/graphql",
-//   graphqlHTTP({
-//     schema: schema,
-//     rootValue: roott,
-//     graphiql: true,
-//   })
-// );
 
 mongoose
   .connect(DB_URL, { useNewUrlParser: true })
