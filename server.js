@@ -2,8 +2,8 @@ const express = require("express");
 // const { graphqlHTTP } = require("express-graphql");
 const mongoose = require("mongoose");
 
-// const schema = require("./graphql/schema");
-// const roott = require("./graphql/resolver/root");
+// const schema = require("./server/graphql/schema");
+// const roott = require("./server/graphql/resolver/root");
 
 const path = require("path");
 
