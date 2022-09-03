@@ -3,7 +3,7 @@ const { graphqlHTTP } = require("express-graphql");
 const mongoose = require("mongoose");
 
 const schema = require("./graphql/schema");
-const root = require("./graphql/resolver/root");
+const roott = require("./graphql/resolver/root");
 
 const path = require("path");
 
@@ -25,7 +25,7 @@ app.use(
   "/graphql",
   graphqlHTTP({
     schema: schema,
-    rootValue: root,
+    rootValue: roott,
     graphiql: true,
   })
 );
