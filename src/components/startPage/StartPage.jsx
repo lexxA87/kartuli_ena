@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function StartPage() {
+  const redirect = useNavigate();
+
   return (
     <section id="hero" className="hero">
       <div className="info d-flex align-items-center">
@@ -21,6 +24,7 @@ function StartPage() {
                 data-aos-delay="200"
                 href="#get-started"
                 className="btn-get-started"
+                onClick={() => redirect("words")}
               >
                 Get Started
               </a>
